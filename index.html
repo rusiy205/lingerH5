@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>灵儿数字人卡牌H5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="cardpack-icon" id="cardpackBtn" title="切换角色">
+      <!-- 简单SVG卡包图标 -->
+      <svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="8" width="24" height="16" rx="4" fill="#FFD700" stroke="#333" stroke-width="2"/><rect x="8" y="12" width="16" height="8" rx="2" fill="#FFF8DC" stroke="#333" stroke-width="1.5"/></svg>
+    </div>
+    <span class="role-name">灵儿</span>
+  </header>
+  <main>
+    <video id="roleVideo" src="assets/linger.mp4" controls autoplay loop playsinline></video>
+    <div id="chatArea" class="chat-area"></div>
+  </main>
+  <footer>
+    <form id="chatForm">
+      <input type="text" id="chatInput" placeholder="和灵儿聊天吧..." autocomplete="off" />
+      <button type="button" id="voiceBtn" title="语音输入">🎤</button>
+      <button type="submit">发送</button>
+    </form>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html> 
