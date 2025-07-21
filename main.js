@@ -74,9 +74,9 @@ async function fetchQwenCharacterAPI(userInput) {
   });
   if (!res.ok) throw new Error('API请求失败');
   const data = await res.json();
-  // 兼容API返回格式
-  if (data && data.output && data.output.choices && data.output.choices[0] && data.output.choices[0].message && data.output.choices[0].message.content) {
-    return data.output.choices[0].message.content.trim();
+  // 兼容新版API返回格式
+  if (data && data.output && data.output.text) {
+    return data.output.text.trim();
   } else {
     throw new Error('API返回格式异常');
   }
