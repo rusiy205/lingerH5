@@ -65,6 +65,20 @@ document.getElementById('cardpackBtn').addEventListener('click', function() {
   alert('当前只有灵儿一个角色，后续可扩展更多角色！');
 });
 
+// 自动播放兼容：页面加载后主动play，失败则在用户首次触摸时再play
+window.addEventListener('DOMContentLoaded', function() {
+  var video = document.getElementById('roleVideo');
+  if (video) {
+    video.play().catch(function(e){
+      // 某些浏览器需要用户交互才能播放
+      document.body.addEventListener('touchstart', function once() {
+        video.play();
+        document.body.removeEventListener('touchstart', once);
+      });
+    });
+  }
+});
+
 // 调用阿里通义千问角色扮演API
 async function fetchQwenCharacterAPI(userInput) {
   const res = await fetch('/api/qwen', {
